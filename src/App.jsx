@@ -96,7 +96,7 @@ function RegistrationForm({ position, onClose, onSave }) {
     setIsLoading(true)
     
     try {
-      const response = await fetch('http://localhost:5000/api/participants', {
+      const response = await fetch('/api/participants', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -238,7 +238,7 @@ function App() {
 
   // Загрузка маркеров из БД
   useEffect(() => {
-    fetch('http://localhost:5000/api/participants')
+    fetch('/api/participants')
       .then(res => res.json())
       .then(data => {
         setMarkers(data)
@@ -266,7 +266,7 @@ function App() {
     if (!confirm('Удалить эту метку?')) return
     
     try {
-      const response = await fetch(`http://localhost:5000/api/participants/${id}`, {
+      const response = await fetch(`/api/participants${id}`, {
         method: 'DELETE'
       })
       
