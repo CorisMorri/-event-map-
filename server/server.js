@@ -132,7 +132,7 @@ app.get('*', (req, res) => {
 })
 
 // Запуск сервера
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Сервер запущен на порту ${PORT}`)
-  console.log(`📍 API доступен по адресу: http://localhost:${PORT}/api/participants`)
+  console.log(`📍 API доступен: http://0.0.0.0:${PORT}/api/participants`)
 })
