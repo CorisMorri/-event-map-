@@ -54,16 +54,12 @@ app.delete('/api/participants/:id', (req, res) => {
   res.json({ deleted: req.params.id })
 })
 
-// Раздача статики React
+// Раздача статики React (это достаточно)
 const distPath = path.join(__dirname, '..', 'dist')
 app.use(express.static(distPath))
-
-// ИСПРАВЛЕНО: вместо '*' теперь '/*'
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(distPath, 'index.html'))
-})
 
 // Запуск
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Сервер запущен на порту ${PORT}`)
+  console.log(`📁 Статика из: ${distPath}`)
 })
