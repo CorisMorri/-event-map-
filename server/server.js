@@ -58,7 +58,8 @@ app.delete('/api/participants/:id', (req, res) => {
 const distPath = path.join(__dirname, '..', 'dist')
 app.use(express.static(distPath))
 
-app.get('*', (req, res) => {
+// ИСПРАВЛЕНО: вместо '*' теперь '/*'
+app.get('/*', (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'))
 })
 
